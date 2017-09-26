@@ -19,7 +19,7 @@ function jacchecktmp(θ::AbstractVector{T}) where {T}
 end
 # ---------------------------- jacobian check -----------------------------
 
-reldiff(x::T, y::T) where {T<:Real} = x+y == zero(T) ? zero(T) : convert(T,2) * abs(x-y) / (x+y)
+reldiff(x::T, y::T) where {T<:Real} = x+y == zero(T) ? zero(T) : convert(T,2) * abs(x-y) / (abs(x)+abs(y))
 absdiff(x::T, y::T) where {T<:Real} = abs(x-y)
 
 function max_and_pos(diff_fun::Function, x::AbstractArray{T}, y::AbstractArray{T}) where {T<:Real}
@@ -68,7 +68,7 @@ function jac_hess_check!(tmp::jacchecktmp, fun::Function, θ::AbstractVector{T};
         h_abs < d2tol || warn("For h(x), max abs diff: $h_abs @ $h_abs_pos,  max rel diff: $h_rel @ $h_rel_pos")
     end
 
-    return (g_abs, g_rel, h_abs, h_rel)
+    return (g_abs, h_abs)
 end
 
 
