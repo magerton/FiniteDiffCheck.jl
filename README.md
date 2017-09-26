@@ -8,8 +8,8 @@
 
 
 Checks analytic vs finite difference gradient + hessian using central differencing.
-While the [Calculus](https://github.com/johnmyleswhite/Calculus.jl) package does
-lots more & takes one-sided differences, it won't do Jacobians (though [Calculus2](https://github.com/johnmyleswhite/Calculus2.jl) does).
+While the [Calculus.jl](https://github.com/johnmyleswhite/Calculus.jl) package does
+lots more & takes one-sided differences, it won't do Jacobians (though [Calculus2.jl](https://github.com/johnmyleswhite/Calculus2.jl) does). Also, `FiniteDiffCheck.jl` can use `AbstractVector`s like `MVector` from [StaticArrays.jl](https://github.com/JuliaArrays/StaticArrays.jl).
 
 
 # Example:
